@@ -1,0 +1,27 @@
+<h2>Panel</h2>
+
+<a href="/login">Login</a>
+<a href="/logout">Logout</a>
+<a href="/register">Register</a>
+
+<div>
+  <% if login? %>
+    <p style="background: #ADFF2F">Welcome <%= username %> you'r loged in.</p>
+  <% else %>
+    <p style="background: red">Please login.</p>
+  <% end %>
+</div>
+
+<hr>
+
+<h2>Users in the system</h2>
+
+<div>
+  <% if results.any? %>
+    <% results.each do |row| %>
+      <p><%= row["name"] %> - <%= row["email"] %></p>
+    <% end %>
+  <% else %>
+    <p>There is no users.</p>
+  <% end %>
+</div>
